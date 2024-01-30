@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_poster">
+
+    <fragment
+        android:id="@+id/navigation_poster"
+        android:name="com.example.cinemashift.ui.poster.PosterFragment"
+        android:label="@string/title_poster"
+        tools:layout="@layout/fragment_poster" />
+
+    <fragment
+        android:id="@+id/navigation_tickets"
+        android:name="com.example.cinemashift.ui.tickets.TicketsFragment"
+        android:label="@string/title_tickets"
+        tools:layout="@layout/fragment_tickets" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.cinemashift.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
