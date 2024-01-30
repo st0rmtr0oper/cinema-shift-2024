@@ -12,6 +12,8 @@ import com.example.cinemashift.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    //TODO: splash для красоты?
+
     private val repository = CinemaRepository     // вот это вот недоразумение лучше убрать в нужное место потом
 
     private lateinit var binding: ActivityMainBinding

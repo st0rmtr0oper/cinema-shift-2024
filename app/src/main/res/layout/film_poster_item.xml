@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/film_card"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="360dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/film_img"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background">
+    </ImageView>
+
+    <LinearLayout
+        android:id="@+id/film_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/film_title"
+            android:text="Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:id="@+id/film_subtitle"
+            android:text="subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+<!--        rating stars/img?-->
+
+        <TextView
+            android:id="@+id/film_rating_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <Button
+            android:id="@+id/info_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
