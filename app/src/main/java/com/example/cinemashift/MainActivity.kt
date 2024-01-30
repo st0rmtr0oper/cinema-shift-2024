@@ -7,9 +7,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.cinemashift.data.CinemaRepository
 import com.example.cinemashift.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private val repository = CinemaRepository     // вот это вот недоразумение лучше убрать в нужное место потом
 
     private lateinit var binding: ActivityMainBinding
 

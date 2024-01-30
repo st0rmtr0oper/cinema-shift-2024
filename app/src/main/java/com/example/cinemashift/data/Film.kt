@@ -2,6 +2,7 @@ package com.example.cinemashift.data
 
 //TODO: use just strings without enums???
 //TODO: maybe i can use other data types?
+//кастомные десериализации вроде не нужны...
 
 data class Film(
     val id: String,
