@@ -70,5 +70,5 @@ dependencies {
     implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
 
     //glide
-    implementation("com.github.bumptech.glide:5.0.0")
+//    implementation("com.github.bumptech.glide:5.0.0-rc01")
 }

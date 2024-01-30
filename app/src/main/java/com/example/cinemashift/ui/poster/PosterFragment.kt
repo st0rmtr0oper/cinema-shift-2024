@@ -32,6 +32,12 @@ class PosterFragment : Fragment() {
         posterViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+//        posterViewModel.response.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+
+
         return root
     }
 
