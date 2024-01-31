@@ -57,13 +57,15 @@ class PosterFragment : Fragment() {
         showProgress()
 
         lifecycleScope.launch {
-            try {
+//            try {
                 val repository = mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
-                val films = repository.getTodayFilms()
-                showContent(films)
-            } catch (ex: Exception) {
-                showError(ex.message.orEmpty())
-            }
+//                val films = repository.getTodayFilms()
+//                showContent(films)
+                val response = repository.getResponse()
+                showError(response)
+//            } catch (ex: Exception) {
+//                showError(ex.message.orEmpty())
+//            }
         }
     }
 
