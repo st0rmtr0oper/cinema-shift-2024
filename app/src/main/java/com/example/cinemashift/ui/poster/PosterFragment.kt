@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.databinding.FragmentPosterBinding
 import kotlinx.coroutines.launch
-import com.example.cinemashift.mainActivity
+import com.example.cinemashift.data.mainActivity
 
 class PosterFragment : Fragment() {
 
@@ -32,11 +32,6 @@ class PosterFragment : Fragment() {
 
         _binding = FragmentPosterBinding.inflate(inflater, container, false)
 
-//        val textView: TextView = binding.textPoster
-//        posterViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
-
         return binding.root
     }
 
@@ -44,7 +39,7 @@ class PosterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.posterRecyclerView.adapter =
-            PosterAdapter(::handleFilmClick)    //TODO снова вопрос с кнопкой
+            PosterAdapter(::handleFilmClick)    //TODO снова вопрос с кнопкой  - к слову о них, можно сделать карточку-картинку с описанием поверх, без доп кнопок
 
         launchPosterLoading()
     }

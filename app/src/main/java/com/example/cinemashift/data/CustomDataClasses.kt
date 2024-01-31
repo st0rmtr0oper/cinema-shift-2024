@@ -13,14 +13,13 @@ data class FilmsResponse(
     val films: List<Film>
 )
 
-@JsonClass(generateAdapter = true)
 data class Film(
     val id: String,
     val name: String,
     val originalName: String,
     val description: String,
     val releaseDate: String,
-    val actors: ArrayList<FilmPerson>,
+//    val actors: ArrayList<FilmPerson>,
     val directors: ArrayList<FilmPerson>,
     val runtime: Int,
     val ageRating: AgeRating,
@@ -30,14 +29,12 @@ data class Film(
     val country: Country
 )
 
-@JsonClass(generateAdapter = true)
 data class FilmPerson(
     val id: String,
-    val professions: Professions,
+    val professions: List<Professions>,
     val fullName: String
 )
 
-@JsonClass(generateAdapter = true)
 data class Country(
     val name: String,
     val code: String,
@@ -45,7 +42,6 @@ data class Country(
     val id: Int
 )
 
-@JsonClass(generateAdapter = true)
 data class Rating(
     val kinopoisk: String,
     val imdb: String
