@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit
 class CinemaRepository {
     companion object {
         const val BASE_URL = "https://shift-backend.onrender.com/"
+        const val CROP_URL = "https://shift-backend.onrender.com"
     }
 
 

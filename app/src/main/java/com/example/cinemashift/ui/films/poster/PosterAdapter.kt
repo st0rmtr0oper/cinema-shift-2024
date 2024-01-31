@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cinemashift.R
+import com.example.cinemashift.data.CinemaRepository.Companion.CROP_URL
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.databinding.FilmPosterItemBinding
 
@@ -37,16 +38,14 @@ class PosterViewHolder(private val binding: FilmPosterItemBinding) :
             filmTitle.text = film.name
             filmSubtitle.text = film.genres.toString()
             filmRatingValue.text = film.userRatings.imdb + film.userRatings.kinopoisk
-//            filmImg = //TODO GLIDE???
-//            Glide.with(this)
-//                .load(film.img) // image url
-//                .placeholder(R.drawable.placeholder) // any placeholder to load at start
-//                .error(R.drawable.imagenotfound)  // any image in case of error
-//                .override(200, 200) // resizing
-//                .centerCrop()
-//                .into(binding.filmImg)
-//            Glide.with(context).load(film.img).into(filmImg)
             //TODO stringFormat
+
+            Glide.with(binding.filmImg.context)
+                .load(CROP_URL+film.img) // image url
+                .placeholder(R.drawable.baseline_image_24) // any placeholder to load at start
+                .error(R.drawable.baseline_hide_image_24)  // any image in case of error
+                .into(binding.filmImg)
+            //TODO Glide isnt working properly -    with(???)
         }
 
         itemView.setOnClickListener {
