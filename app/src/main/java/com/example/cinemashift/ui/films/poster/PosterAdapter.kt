@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.databinding.FilmPosterItemBinding
 
-
-//TODO 1) зачем мне filmClickListener, если в карточке есть отдельная кнопка?
 class PosterAdapter(private val filmClickListener: (Film) -> Unit) :
     RecyclerView.Adapter<PosterViewHolder>() {
 

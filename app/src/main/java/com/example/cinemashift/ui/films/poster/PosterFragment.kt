@@ -39,7 +39,7 @@ class PosterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.posterRecyclerView.adapter =
-            PosterAdapter(::handleFilmClick)    //TODO снова вопрос с кнопкой  - к слову о них, можно сделать карточку-картинку с описанием поверх, без доп кнопок
+            PosterAdapter(::handleFilmClick)
 
         launchPosterLoading()
     }
