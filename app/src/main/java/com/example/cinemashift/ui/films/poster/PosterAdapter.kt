@@ -1,4 +1,4 @@
-package com.example.cinemashift.ui.poster
+package com.example.cinemashift.ui.films.poster
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

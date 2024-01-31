@@ -2,10 +2,6 @@ package com.example.cinemashift.data
 
 import com.squareup.moshi.JsonClass
 
-//TODO: use just strings without enums???
-//TODO: maybe i can use other data types?
-//кастомные десериализации вроде не нужны...
-
 @JsonClass(generateAdapter = true)
 data class FilmsResponse(
     val success: String,

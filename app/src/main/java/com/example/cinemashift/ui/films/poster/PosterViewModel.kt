@@ -1,4 +1,4 @@
-package com.example.cinemashift.ui.poster
+package com.example.cinemashift.ui.films.poster
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

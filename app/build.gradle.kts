@@ -57,6 +57,7 @@ dependencies {
     //coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
 
     //testing
@@ -73,5 +74,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //glide
-//    implementation("com.github.bumptech.glide:5.0.0-rc01")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    //splash
+    implementation ("androidx.core:core-splashscreen:1.0.1")
 }

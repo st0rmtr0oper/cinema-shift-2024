@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_poster"
-        android:name="com.example.cinemashift.ui.poster.PosterFragment"
+        android:name="com.example.cinemashift.ui.films.poster.PosterFragment"
         android:label="@string/title_poster"
         tools:layout="@layout/fragment_poster" />
 
