@@ -34,9 +34,11 @@ class PosterViewHolder(private val binding: FilmPosterItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(film: Film, filmClickListener: (Film) -> Unit) {
         with(binding) {
-//            filmRatingValue = format3()
-//            filmImg = format()
-        //TODO stringFormat?
+            filmTitle.text = film.name
+            filmSubtitle.text = film.genres.toString()
+            filmRatingValue.text = film.userRatings.imdb + film.userRatings.kinopoisk
+//            filmImg = //TODO GLIDE???
+        //TODO stringFormat
         }
 
         itemView.setOnClickListener {
