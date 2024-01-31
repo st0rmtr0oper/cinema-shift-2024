@@ -4,6 +4,12 @@ package com.example.cinemashift.data
 //TODO: maybe i can use other data types?
 //кастомные десериализации вроде не нужны...
 
+data class FilmTodayRequest(
+    val success: String,
+    val reason: String?,
+    val films: List<Film>
+)
+
 data class Film(
     val id: String,
     val name: String,

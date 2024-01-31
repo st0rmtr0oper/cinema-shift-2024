@@ -27,7 +27,8 @@ class CinemaRepository {
         retrofit.create(CinemaApi::class.java)
     }
 
-    suspend fun getTodayFilms():List<Film> = cinemaApi.getTodayFilms()
+    fun test() {}
+    public final suspend fun getTodayFilms():List<Film> = cinemaApi.getTodayFilms().films
 
-//    suspend fun getCurrentFilm():Film = cinemaApi.getCurrentFilm( ... )      //TODO???
+//    suspend fun getCurrentFilm():Film = cinemaApi.getCurrentFilm( ... )      //TODO вторая функция
 }

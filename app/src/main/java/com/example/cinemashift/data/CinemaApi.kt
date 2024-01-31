@@ -6,7 +6,7 @@ import retrofit2.http.Path
 interface CinemaApi {
 
     @GET("/cinema/today")
-    suspend fun getTodayFilms(): List<Film>
+    suspend fun getTodayFilms(): FilmTodayRequest
 
     @GET("/cinema/film/{filmId}")
     suspend fun getCurrentFilm(@Path("filmId") filmId: String): Film

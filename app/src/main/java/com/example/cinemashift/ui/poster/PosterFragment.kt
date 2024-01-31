@@ -9,12 +9,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.cinemashift.MainActivity
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.databinding.FragmentPosterBinding
 import kotlinx.coroutines.launch
-
-val Fragment.mainActivity: MainActivity get() = requireActivity() as MainActivity
+import com.example.cinemashift.mainActivity
 
 class PosterFragment : Fragment() {
 
@@ -61,7 +59,7 @@ class PosterFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val repository = mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
-                val films = repository.getTodayFilms()      //че за это?
+                val films = repository.getTodayFilms()
                 showContent(films)
             } catch (ex: Exception) {
                 showError(ex.message.orEmpty())

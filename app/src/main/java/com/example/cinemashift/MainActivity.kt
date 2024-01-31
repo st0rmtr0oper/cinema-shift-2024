@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     //TODO: splash для красоты?
 
-    val repository = CinemaRepository // вот это вот недоразумение лучше убрать в нужное место потом
+    val repository = CinemaRepository() //TODO вот это вот недоразумение лучше убрать в нужное место потом
 
     private lateinit var binding: ActivityMainBinding
 
