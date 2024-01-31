@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.databinding.FragmentPosterBinding
 import kotlinx.coroutines.launch
@@ -45,7 +46,8 @@ class PosterFragment : Fragment() {
     }
 
     private fun handleFilmClick(film: Film) {
-        Toast.makeText(context, "kk", Toast.LENGTH_SHORT).show()    //TODO  55:09
+        findNavController().navigate(PosterFragmentDirections.actionNavigationPosterToFilmInfoFragment())
+        //TODO передача айдишника фильма
     }
 
     private fun launchPosterLoading() {
@@ -56,10 +58,6 @@ class PosterFragment : Fragment() {
                 val repository = mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
                 val films = repository.getTodayFilms()
                 showContent(films)
-
-                //TODO допилить
-//                val response = repository.getResponse()   //это лежит тут на всякий для проверки
-//                showError(response)
             } catch (ex: Exception) {
                 showError(ex.message.orEmpty())
             }
@@ -88,7 +86,7 @@ class PosterFragment : Fragment() {
             posterProgBar.isVisible = false
             posterRecyclerView.isVisible = false
             posterErrorText.isVisible = true
-            posterErrorText.text= message + "\n Нажмите на это сообщение, чтобы обновить страницу"
+            posterErrorText.text= "$message\n Нажмите на это сообщение, чтобы обновить страницу"
             posterErrorText.setOnClickListener {launchPosterLoading()}
         }
     }

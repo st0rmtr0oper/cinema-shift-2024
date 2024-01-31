@@ -45,7 +45,6 @@ class PosterViewHolder(private val binding: FilmPosterItemBinding) :
                 .placeholder(R.drawable.baseline_image_24) // any placeholder to load at start
                 .error(R.drawable.baseline_hide_image_24)  // any image in case of error
                 .into(binding.filmImg)
-            //TODO Glide isnt working properly -    with(???)
         }
 
         itemView.setOnClickListener {

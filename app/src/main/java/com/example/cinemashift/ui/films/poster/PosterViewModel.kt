@@ -9,4 +9,6 @@ class PosterViewModel : ViewModel() {
 //        value = "This is home Fragment"
 //    }
 //    val text: LiveData<String> = _text
+
+    //TODO помучаться с вьюмоделями если останется время (вряд ли)
 }
