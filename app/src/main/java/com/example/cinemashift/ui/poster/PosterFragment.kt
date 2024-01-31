@@ -61,7 +61,7 @@ class PosterFragment : Fragment() {
                 val repository = mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
 //                val films = repository.getTodayFilms()
 //                showContent(films)
-                val response = repository.getResponse()
+                val response = repository.getResponse()  //TODO допилить
                 showError(response)
 //            } catch (ex: Exception) {
 //                showError(ex.message.orEmpty())

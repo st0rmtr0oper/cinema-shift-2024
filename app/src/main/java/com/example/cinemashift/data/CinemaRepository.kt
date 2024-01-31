@@ -1,12 +1,9 @@
 package com.example.cinemashift.data
 
 import com.google.gson.GsonBuilder
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 class CinemaRepository {
@@ -14,13 +11,6 @@ class CinemaRepository {
         const val BASE_URL = "https://shift-backend.onrender.com/"
     }
 
-//    private val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-
-//    private val retrofit =
-//        Retrofit.Builder().addConverterFactory(MoshiConverterFactory.create(moshi))
-//            .client(provideOkHttpClient()).baseUrl(
-//            BASE_URL
-//        ).build()
 
     private val gson = GsonBuilder().create()
 
