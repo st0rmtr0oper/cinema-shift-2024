@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.cinemashift.R
@@ -34,10 +35,14 @@ class FilmInfoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val profileViewModel =
-            ViewModelProvider(this)[ProfileViewModel::class.java]
+//        val profileViewModel =
+//            ViewModelProvider(this)[ProfileViewModel::class.java]
 
         _binding = FragmentFilmInfoBinding.inflate(inflater, container, false)
+
+        binding.filmButton.setOnClickListener {
+            findNavController().navigate(FilmInfoFragmentDirections.actionNavigationFilmInfoToScheduleFragment(filmInfoFragmentArgs.filmId))
+        }
 
         return binding.root
     }

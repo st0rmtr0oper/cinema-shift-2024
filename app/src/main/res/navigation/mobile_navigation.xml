@@ -9,7 +9,7 @@
         android:id="@+id/navigation_poster"
         android:name="com.example.cinemashift.ui.films.poster.PosterFragment"
         android:label="@string/title_poster"
-        tools:layout="@layout/fragment_poster" >
+        tools:layout="@layout/fragment_poster">
         <action
             android:id="@+id/action_navigation_poster_to_filmInfoFragment"
             app:destination="@id/navigation_film_info"
@@ -32,7 +32,17 @@
         android:id="@+id/navigation_film_info"
         android:name="com.example.cinemashift.ui.films.info.FilmInfoFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_film_info" >
+        tools:layout="@layout/fragment_film_info">
+        <argument android:name="filmId" />
+        <action
+            android:id="@+id/action_navigation_film_info_to_scheduleFragment"
+            app:destination="@id/navigation_schedule"
+            app:popUpTo="@id/navigation_film_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_schedule"
+        android:name="com.example.cinemashift.ui.films.schedule.ScheduleFragment"
+        android:label="@string/schedule">
         <argument android:name="filmId" />
     </fragment>
 </navigation>

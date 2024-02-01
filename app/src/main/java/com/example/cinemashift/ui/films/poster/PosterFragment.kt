@@ -28,8 +28,8 @@ class PosterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val posterViewModel =
-            ViewModelProvider(this)[PosterViewModel::class.java]
+//        val posterViewModel =
+//            ViewModelProvider(this)[PosterViewModel::class.java]
 
         _binding = FragmentPosterBinding.inflate(inflater, container, false)
 
