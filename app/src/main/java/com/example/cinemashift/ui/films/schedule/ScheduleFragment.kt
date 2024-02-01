@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.cinemashift.R
 import com.example.cinemashift.databinding.FragmentFilmInfoBinding
+import com.example.cinemashift.databinding.FragmentScheduleBinding
 import com.example.cinemashift.ui.profile.ProfileViewModel
 
 class ScheduleFragment : Fragment() {
@@ -23,7 +24,7 @@ class ScheduleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val scheduleViewModel = ScheduleViewModel(this)[ProfileViewModel::class.java]
+//        val scheduleViewModel = ScheduleViewModel()
 
         _binding = FragmentScheduleBinding.inflate(inflater, container, false)
 
@@ -37,7 +38,7 @@ class ScheduleFragment : Fragment() {
     }
 
     private fun launchScheduleLoading() {
-        TODO("Not yet implemented")
+        //TODO подгрузка данных
     }
 
 }

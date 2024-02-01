@@ -38,7 +38,7 @@ class PosterViewHolder(private val binding: FilmPosterItemBinding) :
             filmTitle.text = film.name
             filmSubtitle.text = film.genres.toString()
             filmRatingValue.text = film.userRatings.imdb + film.userRatings.kinopoisk
-            //TODO stringFormat
+            //TODO stringFormat (44:09)
 
             Glide.with(binding.filmImg.context)
                 .load(CROP_URL+film.img) // image url
