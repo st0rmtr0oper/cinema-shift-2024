@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.example.cinemashift.R
 import com.example.cinemashift.databinding.FragmentFilmInfoBinding
 import com.example.cinemashift.databinding.FragmentScheduleBinding
+import com.example.cinemashift.ui.films.info.FilmInfoFragmentArgs
 import com.example.cinemashift.ui.profile.ProfileViewModel
 
 class ScheduleFragment : Fragment() {
@@ -19,6 +21,8 @@ class ScheduleFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private val scheduleFragmentArgs by navArgs<ScheduleFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

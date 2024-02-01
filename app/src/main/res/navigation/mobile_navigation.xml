@@ -43,6 +43,6 @@
         android:id="@+id/navigation_schedule"
         android:name="com.example.cinemashift.ui.films.schedule.ScheduleFragment"
         android:label="@string/schedule">
-        <argument android:name="filmId" />
+        <argument android:name="schedule_filmId" />
     </fragment>
 </navigation>

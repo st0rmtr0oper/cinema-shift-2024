@@ -28,7 +28,7 @@ class FilmInfoFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var filmInfoFragmentArgs: FilmInfoFragmentArgs
+    private val filmInfoFragmentArgs by navArgs<FilmInfoFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +40,7 @@ class FilmInfoFragment : Fragment() {
 
         _binding = FragmentFilmInfoBinding.inflate(inflater, container, false)
 
+
         binding.filmButton.setOnClickListener {
             findNavController().navigate(FilmInfoFragmentDirections.actionNavigationFilmInfoToScheduleFragment(filmInfoFragmentArgs.filmId))
         }
@@ -50,7 +51,6 @@ class FilmInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val filmInfoFragmentArgs by navArgs<FilmInfoFragmentArgs>()
         launchFilmInfoLoading(filmInfoFragmentArgs.filmId.toLong())
     }
 
