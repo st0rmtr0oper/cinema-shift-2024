@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit
 class CinemaRepository {
     companion object {
         const val BASE_URL = "https://shift-backend.onrender.com/"
+        const val CROP_URL = "https://shift-backend.onrender.com"
     }
 
 
@@ -33,5 +34,5 @@ class CinemaRepository {
 
     suspend fun getResponse(): String = cinemaApi.getResponse().toString()
 
-//    suspend fun getCurrentFilm():Film = cinemaApi.getCurrentFilm( ... )      //TODO вторая функция
+    suspend fun getFilmByID(id: Long): Film = cinemaApi.getFilmByID(id).film
 }

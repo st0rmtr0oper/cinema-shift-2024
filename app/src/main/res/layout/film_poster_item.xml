@@ -10,8 +10,8 @@
     <ImageView
         android:id="@+id/film_img"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
+        android:layout_height="400dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/ic_launcher_background">
     </ImageView>
 
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content">
         </TextView>
 
-<!--        rating stars/img?-->
+<!--TODO no button? frame layout? rating stars?-->
 
         <TextView
             android:id="@+id/film_rating_value"
@@ -43,14 +43,5 @@
             android:layout_height="wrap_content">
         </TextView>
 
-        <Button
-            android:id="@+id/info_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
-
     </LinearLayout>
-
-
-
 </LinearLayout>

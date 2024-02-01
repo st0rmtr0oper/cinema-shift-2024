@@ -1,4 +1,4 @@
-package com.example.cinemashift.ui.poster
+package com.example.cinemashift.ui.films.poster
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,4 +9,6 @@ class PosterViewModel : ViewModel() {
 //        value = "This is home Fragment"
 //    }
 //    val text: LiveData<String> = _text
+
+    //TODO помучаться с вьюмоделями если останется время (вряд ли)
 }

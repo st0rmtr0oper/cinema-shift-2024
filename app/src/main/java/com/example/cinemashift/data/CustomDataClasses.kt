@@ -2,15 +2,17 @@ package com.example.cinemashift.data
 
 import com.squareup.moshi.JsonClass
 
-//TODO: use just strings without enums???
-//TODO: maybe i can use other data types?
-//кастомные десериализации вроде не нужны...
-
-@JsonClass(generateAdapter = true)
+//remember to create new data class fo each rest api
 data class FilmsResponse(
     val success: String,
     val reason: String?,
     val films: List<Film>
+)
+
+data class FilmResponse(
+    val success: String,
+    val reason: String?,
+    val film: Film
 )
 
 data class Film(
@@ -19,11 +21,11 @@ data class Film(
     val originalName: String,
     val description: String,
     val releaseDate: String,
-//    val actors: ArrayList<FilmPerson>,
-    val directors: ArrayList<FilmPerson>,
+    val actors: List<FilmPerson>,
+    val directors: List<FilmPerson>,
     val runtime: Int,
     val ageRating: AgeRating,
-    val genres: ArrayList<String>,
+    val genres: List<String>,
     val userRatings: Rating,
     val img: String,
     val country: Country

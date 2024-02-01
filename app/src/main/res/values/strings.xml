@@ -4,4 +4,6 @@
     <string name="title_tickets">Билеты</string>
     <string name="title_profile">Профиль</string>
     <string name="error_text">одна ошибка и ты ошибся</string>
+    <string name="film_info">Подробнее</string>
+
 </resources>

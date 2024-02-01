@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/film_card"
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/film_prog_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/film_error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/error_text"
+        android:textAlignment="center"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/film_img"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_launcher_background" />
+
+    <LinearLayout
+        android:id="@+id/film_card_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/film_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title" />
+
+        <TextView
+            android:id="@+id/film_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="subtitle" />
+
+        <!--TODO no button? frame layout? rating stars?-->
+
+        <TextView
+            android:id="@+id/film_rating_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/film_description">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/film_description_text">
+
+        </TextView>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/film_button"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="20dp"/>
+</LinearLayout>

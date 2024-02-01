@@ -1,4 +1,4 @@
-package com.example.cinemashift.ui.poster
+package com.example.cinemashift.ui.films.poster
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.databinding.FragmentPosterBinding
 import kotlinx.coroutines.launch
@@ -39,13 +40,17 @@ class PosterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.posterRecyclerView.adapter =
-            PosterAdapter(::handleFilmClick)    //TODO снова вопрос с кнопкой  - к слову о них, можно сделать карточку-картинку с описанием поверх, без доп кнопок
+            PosterAdapter(::handleFilmClick)
 
         launchPosterLoading()
     }
 
     private fun handleFilmClick(film: Film) {
-        Toast.makeText(context, "kk", Toast.LENGTH_SHORT).show()    //TODO  55:09
+        findNavController().navigate(
+            PosterFragmentDirections.actionNavigationPosterToFilmInfoFragment(
+                film.id
+            )
+        )
     }
 
     private fun launchPosterLoading() {
@@ -53,13 +58,10 @@ class PosterFragment : Fragment() {
 
         lifecycleScope.launch {
             try {
-                val repository = mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
+                val repository =
+                    mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
                 val films = repository.getTodayFilms()
                 showContent(films)
-
-                //TODO допилить
-//                val response = repository.getResponse()   //это лежит тут на всякий для проверки
-//                showError(response)
             } catch (ex: Exception) {
                 showError(ex.message.orEmpty())
             }
@@ -75,11 +77,11 @@ class PosterFragment : Fragment() {
     }
 
     private fun showContent(films: List<Film>) {
-        with (binding) {
+        with(binding) {
             posterProgBar.isVisible = false
             posterErrorText.isVisible = false
             posterRecyclerView.isVisible = true
-            (posterRecyclerView.adapter as? PosterAdapter)?.films= films
+            (posterRecyclerView.adapter as? PosterAdapter)?.films = films
         }
     }
 
@@ -88,8 +90,8 @@ class PosterFragment : Fragment() {
             posterProgBar.isVisible = false
             posterRecyclerView.isVisible = false
             posterErrorText.isVisible = true
-            posterErrorText.text= message + "\n Нажмите на это сообщение, чтобы обновить страницу"
-            posterErrorText.setOnClickListener {launchPosterLoading()}
+            posterErrorText.text = "$message\n Нажмите на это сообщение, чтобы обновить страницу"
+            posterErrorText.setOnClickListener { launchPosterLoading() }
         }
     }
 

@@ -7,9 +7,15 @@
 
     <fragment
         android:id="@+id/navigation_poster"
-        android:name="com.example.cinemashift.ui.poster.PosterFragment"
+        android:name="com.example.cinemashift.ui.films.poster.PosterFragment"
         android:label="@string/title_poster"
-        tools:layout="@layout/fragment_poster" />
+        tools:layout="@layout/fragment_poster" >
+        <action
+            android:id="@+id/action_navigation_poster_to_filmInfoFragment"
+            app:destination="@id/navigation_film_info"
+            app:popUpTo="@id/navigation_poster"
+            app:popUpToInclusive="false" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_tickets"
@@ -22,4 +28,11 @@
         android:name="com.example.cinemashift.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/navigation_film_info"
+        android:name="com.example.cinemashift.ui.films.info.FilmInfoFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_film_info" >
+        <argument android:name="filmId" />
+    </fragment>
 </navigation>

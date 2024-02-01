@@ -1,13 +1,14 @@
-package com.example.cinemashift.ui.poster
+package com.example.cinemashift.ui.films.poster
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.cinemashift.R
+import com.example.cinemashift.data.CinemaRepository.Companion.CROP_URL
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.databinding.FilmPosterItemBinding
 
-
-//TODO 1) зачем мне filmClickListener, если в карточке есть отдельная кнопка?
 class PosterAdapter(private val filmClickListener: (Film) -> Unit) :
     RecyclerView.Adapter<PosterViewHolder>() {
 
@@ -37,8 +38,13 @@ class PosterViewHolder(private val binding: FilmPosterItemBinding) :
             filmTitle.text = film.name
             filmSubtitle.text = film.genres.toString()
             filmRatingValue.text = film.userRatings.imdb + film.userRatings.kinopoisk
-//            filmImg = //TODO GLIDE???
-        //TODO stringFormat
+            //TODO stringFormat
+
+            Glide.with(binding.filmImg.context)
+                .load(CROP_URL+film.img) // image url
+                .placeholder(R.drawable.baseline_image_24) // any placeholder to load at start
+                .error(R.drawable.baseline_hide_image_24)  // any image in case of error
+                .into(binding.filmImg)
         }
 
         itemView.setOnClickListener {
