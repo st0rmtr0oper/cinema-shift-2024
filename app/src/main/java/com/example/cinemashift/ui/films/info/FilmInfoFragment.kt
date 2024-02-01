@@ -1,6 +1,5 @@
 package com.example.cinemashift.ui.films.info
 
-import android.app.ActionBar
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
