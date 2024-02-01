@@ -46,8 +46,11 @@ class PosterFragment : Fragment() {
     }
 
     private fun handleFilmClick(film: Film) {
-        findNavController().navigate(PosterFragmentDirections.actionNavigationPosterToFilmInfoFragment())
-        //TODO передача айдишника фильма
+        findNavController().navigate(
+            PosterFragmentDirections.actionNavigationPosterToFilmInfoFragment(
+                film.id
+            )
+        )
     }
 
     private fun launchPosterLoading() {
@@ -55,7 +58,8 @@ class PosterFragment : Fragment() {
 
         lifecycleScope.launch {
             try {
-                val repository = mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
+                val repository =
+                    mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
                 val films = repository.getTodayFilms()
                 showContent(films)
             } catch (ex: Exception) {
@@ -73,11 +77,11 @@ class PosterFragment : Fragment() {
     }
 
     private fun showContent(films: List<Film>) {
-        with (binding) {
+        with(binding) {
             posterProgBar.isVisible = false
             posterErrorText.isVisible = false
             posterRecyclerView.isVisible = true
-            (posterRecyclerView.adapter as? PosterAdapter)?.films= films
+            (posterRecyclerView.adapter as? PosterAdapter)?.films = films
         }
     }
 
@@ -86,8 +90,8 @@ class PosterFragment : Fragment() {
             posterProgBar.isVisible = false
             posterRecyclerView.isVisible = false
             posterErrorText.isVisible = true
-            posterErrorText.text= "$message\n Нажмите на это сообщение, чтобы обновить страницу"
-            posterErrorText.setOnClickListener {launchPosterLoading()}
+            posterErrorText.text = "$message\n Нажмите на это сообщение, чтобы обновить страницу"
+            posterErrorText.setOnClickListener { launchPosterLoading() }
         }
     }
 

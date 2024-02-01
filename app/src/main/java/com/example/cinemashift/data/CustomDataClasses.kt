@@ -2,11 +2,17 @@ package com.example.cinemashift.data
 
 import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
+//remember to create new data class fo each rest api
 data class FilmsResponse(
     val success: String,
     val reason: String?,
     val films: List<Film>
+)
+
+data class FilmResponse(
+    val success: String,
+    val reason: String?,
+    val film: Film
 )
 
 data class Film(
