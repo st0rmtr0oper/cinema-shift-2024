@@ -7,15 +7,11 @@ import retrofit2.http.Path
 interface CinemaApi {
 
     @GET("/cinema/today")
-    suspend fun getResponse(): JsonObject
-
-    @GET("/cinema/today")
     suspend fun getTodayFilms(): FilmsResponse
 
     @GET("/cinema/film/{filmId}")
     suspend fun getFilmByID(@Path("filmId") filmId: Long): FilmResponse
 
-//    @Headers(AUTH_TOKEN)
-//    @GET("/loans/{id}")
-//    suspend fun getLoanById(@Path("id") loanId: Long): Loan
+    @GET("/cinema/film/{filmId}/schedule")
+    suspend fun getFilmSchedule(@Path("filmId") filmId: Long): ScheduleResponse
 }

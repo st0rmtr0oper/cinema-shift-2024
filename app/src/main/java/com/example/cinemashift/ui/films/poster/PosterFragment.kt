@@ -28,8 +28,8 @@ class PosterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val posterViewModel =
-            ViewModelProvider(this)[PosterViewModel::class.java]
+//        val posterViewModel =
+//            ViewModelProvider(this)[PosterViewModel::class.java]
 
         _binding = FragmentPosterBinding.inflate(inflater, container, false)
 
@@ -59,7 +59,7 @@ class PosterFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val repository =
-                    mainActivity.repository    //TODO: как я понял, этот репозиторий должен валяться в ViewModel
+                    mainActivity.repository
                 val films = repository.getTodayFilms()
                 showContent(films)
             } catch (ex: Exception) {

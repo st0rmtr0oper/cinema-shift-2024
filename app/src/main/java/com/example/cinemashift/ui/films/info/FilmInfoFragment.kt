@@ -1,6 +1,5 @@
 package com.example.cinemashift.ui.films.info
 
-import android.app.ActionBar
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.cinemashift.R
@@ -28,17 +28,22 @@ class FilmInfoFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var filmInfoFragmentArgs: FilmInfoFragmentArgs
+    private val filmInfoFragmentArgs by navArgs<FilmInfoFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val profileViewModel =
-            ViewModelProvider(this)[ProfileViewModel::class.java]
+//        val profileViewModel =
+//            ViewModelProvider(this)[ProfileViewModel::class.java]
 
         _binding = FragmentFilmInfoBinding.inflate(inflater, container, false)
+
+
+        binding.filmButton.setOnClickListener {
+            findNavController().navigate(FilmInfoFragmentDirections.actionNavigationFilmInfoToScheduleFragment(filmInfoFragmentArgs.filmId))
+        }
 
         return binding.root
     }
@@ -46,7 +51,6 @@ class FilmInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val filmInfoFragmentArgs by navArgs<FilmInfoFragmentArgs>()
         launchFilmInfoLoading(filmInfoFragmentArgs.filmId.toLong())
     }
 
@@ -68,24 +72,17 @@ class FilmInfoFragment : Fragment() {
 
     private fun showProgress() {
         with(binding) {
-            filmCardDescription.isVisible = false
-            filmImg.isVisible = false
-            filmDescription.isVisible = false
             filmErrorText.isVisible = false
             filmProgBar.isVisible = true
-            filmButton.isVisible = false
+            setContentVisible(false)
         }
     }
 
     private fun showContent(film: Film) {
         with(binding){
-            filmCardDescription.isVisible = true
-            filmImg.isVisible = true
-            filmDescription.isVisible = true
             filmErrorText.isVisible = false
             filmProgBar.isVisible = false
-            filmButton.isVisible = true
-
+            setContentVisible(true)
             filmTitle.text = film.name
             filmSubtitle.text = film.genres.toString()
             filmRatingValue.text = film.userRatings.imdb + film.userRatings.kinopoisk
@@ -98,15 +95,20 @@ class FilmInfoFragment : Fragment() {
         }
     }
 
+    private fun setContentVisible(bool: Boolean) {
+        with(binding){
+            filmCardDescription.isVisible = bool
+            filmImg.isVisible = bool
+            filmDescription.isVisible = bool
+            filmButton.isVisible = bool
+        }
+    }
+
     private fun showError(message: String) {
         with(binding){
-            filmCardDescription.isVisible = false
-            filmImg.isVisible = false
-            filmDescription.isVisible = false
             filmErrorText.isVisible = true
             filmProgBar.isVisible = false
-            filmButton.isVisible = false
-
+            setContentVisible(false)
             filmErrorText.text = "$message\n Нажмите на это сообщение, чтобы обновить страницу"
             filmErrorText.setOnClickListener { launchFilmInfoLoading(filmInfoFragmentArgs.filmId.toLong()) }
         }

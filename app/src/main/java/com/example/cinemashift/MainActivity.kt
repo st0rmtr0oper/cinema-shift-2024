@@ -1,5 +1,6 @@
 package com.example.cinemashift
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         //hiding bottom nav bar in non-home fragments
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.navigation_film_info) {
+            if ((destination.id == R.id.navigation_film_info)||(destination.id == R.id.navigation_schedule)) {
 
                 navView.visibility = View.GONE
             } else {
@@ -59,6 +60,8 @@ class MainActivity : AppCompatActivity() {
         //enabling up button (1/2)
         NavigationUI.setupActionBarWithNavController(this, navController)
 
+        //orientation lock
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
     //enabling up button (2/2)
     override fun onSupportNavigateUp(): Boolean {

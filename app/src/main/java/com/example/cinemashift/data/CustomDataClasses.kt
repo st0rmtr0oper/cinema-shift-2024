@@ -3,6 +3,12 @@ package com.example.cinemashift.data
 import com.squareup.moshi.JsonClass
 
 //remember to create new data class fo each rest api
+
+data class ScheduleResponse(
+    val success: String,
+    val reason: String?,
+    val schedules: List<Schedule>
+)
 data class FilmsResponse(
     val success: String,
     val reason: String?,
@@ -13,6 +19,35 @@ data class FilmResponse(
     val success: String,
     val reason: String?,
     val film: Film
+)
+
+data class Schedule(
+    val date: String,
+    val seances: List<ScheduleSeance>
+)
+
+data class ScheduleSeance(
+    val time: String,
+    val hall: Hall,
+    val payedTickets: List<Ticket>
+)
+
+data class Hall(
+    val name: String,
+    val places: List<List<Place>>
+)
+
+data class Place(
+    val price: Int,
+    val type: Type
+)
+
+data class Ticket(
+    val filmId: String,
+    val row: Int,
+    val column: Int,
+    val seance: ScheduleSeance,
+    val phone: String
 )
 
 data class Film(
@@ -55,4 +90,8 @@ enum class AgeRating {        //println("ageRating: ${AgeRating.name})
 
 enum class Professions {
     ACTOR, DIRECTOR
+}
+
+enum class Type {
+    ECONOM, COMFORT, BLOCKED
 }

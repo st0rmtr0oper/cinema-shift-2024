@@ -4,6 +4,11 @@
     <string name="title_tickets">Билеты</string>
     <string name="title_profile">Профиль</string>
     <string name="error_text">одна ошибка и ты ошибся</string>
-    <string name="film_info">Подробнее</string>
+    <string name="film_info">Подробнее о фильме:</string>
+    <string name="schedule">Расписание</string>
+    <string name="schedule_date_rv_text">Выберите желаемый день:</string>
+    <string name="schedule_red_rv_text">Красный зал</string>
+    <string name="schedule_green_rv_text">Зеленый зал</string>
+    <string name="schedule_blue_rv_text">Синий зал</string>
 
 </resources>

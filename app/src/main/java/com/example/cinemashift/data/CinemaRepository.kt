@@ -31,8 +31,6 @@ class CinemaRepository {
     }
 
     suspend fun getTodayFilms(): List<Film> = cinemaApi.getTodayFilms().films
-
-    suspend fun getResponse(): String = cinemaApi.getResponse().toString()
-
     suspend fun getFilmByID(id: Long): Film = cinemaApi.getFilmByID(id).film
+    suspend fun getFilmSchedule(id: Long): List<Schedule> = cinemaApi.getFilmSchedule(id).schedules
 }
