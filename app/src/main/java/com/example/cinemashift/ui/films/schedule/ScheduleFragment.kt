@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.cinemashift.data.Schedule
 import com.example.cinemashift.data.mainActivity
 import com.example.cinemashift.databinding.FragmentScheduleBinding
+import com.example.cinemashift.ui.films.poster.PosterAdapter
 import kotlinx.coroutines.launch
 
 class ScheduleFragment : Fragment() {
@@ -32,7 +33,8 @@ class ScheduleFragment : Fragment() {
 
         _binding = FragmentScheduleBinding.inflate(inflater, container, false)
 
-        //TODO click handler
+        binding.datePickerRv.adapter =
+            ScheduleDateAdapter(::handleDateClick)
 
         return binding.root
     }
@@ -41,6 +43,10 @@ class ScheduleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         launchScheduleLoading(scheduleFragmentArgs.scheduleFilmId.toLong())
+    }
+
+    private fun handleDateClick(schedule: Schedule) {
+        //TODO выбор дня
     }
 
     private fun launchScheduleLoading(id: Long) {
