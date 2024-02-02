@@ -33,11 +33,9 @@ class ScheduleDateHolder(private val binding: DatePickBinding) :
     fun bind(schedule: Schedule, dateClickListener: (Schedule) -> Unit) {
         with(binding) {
             datePickButton.text = schedule.date
-
-            //TODO как сделать переключение раписаний сеансов в залах от выбранной даты?
-        }
-        itemView.setOnClickListener {
-            dateClickListener(schedule)
+            datePickButton.setOnClickListener {
+                dateClickListener(schedule)
+            }
         }
     }
 }
