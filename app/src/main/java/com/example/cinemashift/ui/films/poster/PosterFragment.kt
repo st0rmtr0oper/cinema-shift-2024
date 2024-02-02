@@ -16,13 +16,8 @@ import kotlinx.coroutines.launch
 import com.example.cinemashift.data.mainActivity
 
 class PosterFragment : Fragment() {
-
     private var _binding: FragmentPosterBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,21 +25,15 @@ class PosterFragment : Fragment() {
     ): View {
 //        val posterViewModel =
 //            ViewModelProvider(this)[PosterViewModel::class.java]
-
         _binding = FragmentPosterBinding.inflate(inflater, container, false)
-
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.posterRecyclerView.adapter =
             PosterAdapter(::handleFilmClick)
-
         launchPosterLoading()
     }
-
     private fun handleFilmClick(film: Film) {
         findNavController().navigate(
             PosterFragmentDirections.actionNavigationPosterToFilmInfoFragment(
