@@ -72,24 +72,17 @@ class FilmInfoFragment : Fragment() {
 
     private fun showProgress() {
         with(binding) {
-            filmCardDescription.isVisible = false
-            filmImg.isVisible = false
-            filmDescription.isVisible = false
             filmErrorText.isVisible = false
             filmProgBar.isVisible = true
-            filmButton.isVisible = false
+            setContentVisible(false)
         }
     }
 
     private fun showContent(film: Film) {
         with(binding){
-            filmCardDescription.isVisible = true
-            filmImg.isVisible = true
-            filmDescription.isVisible = true
             filmErrorText.isVisible = false
             filmProgBar.isVisible = false
-            filmButton.isVisible = true
-
+            setContentVisible(true)
             filmTitle.text = film.name
             filmSubtitle.text = film.genres.toString()
             filmRatingValue.text = film.userRatings.imdb + film.userRatings.kinopoisk
@@ -102,15 +95,20 @@ class FilmInfoFragment : Fragment() {
         }
     }
 
+    private fun setContentVisible(bool: Boolean) {
+        with(binding){
+            filmCardDescription.isVisible = bool
+            filmImg.isVisible = bool
+            filmDescription.isVisible = bool
+            filmButton.isVisible = bool
+        }
+    }
+
     private fun showError(message: String) {
         with(binding){
-            filmCardDescription.isVisible = false
-            filmImg.isVisible = false
-            filmDescription.isVisible = false
             filmErrorText.isVisible = true
             filmProgBar.isVisible = false
-            filmButton.isVisible = false
-
+            setContentVisible(false)
             filmErrorText.text = "$message\n Нажмите на это сообщение, чтобы обновить страницу"
             filmErrorText.setOnClickListener { launchFilmInfoLoading(filmInfoFragmentArgs.filmId.toLong()) }
         }
