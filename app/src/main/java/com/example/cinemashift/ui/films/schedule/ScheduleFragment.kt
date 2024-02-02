@@ -30,31 +30,28 @@ class ScheduleFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         with(binding){
-            binding.datePickerRv.adapter =
-                ScheduleDateAdapter(::handleDateClick)
-            binding.redRv.adapter = ScheduleHallAdapter(::handleRedClick, "red")
-            binding.greenRv.adapter = ScheduleHallAdapter(::handleGreenClick, "green")
-            binding.blueRv.adapter= ScheduleHallAdapter(::handleBlueClick, "blue")
+            datePickerRv.adapter = ScheduleDateAdapter(::handleDateClick)
+            redRv.adapter = ScheduleHallAdapter(::handleRedClick, "red")
+            greenRv.adapter = ScheduleHallAdapter(::handleGreenClick, "green")
+            blueRv.adapter= ScheduleHallAdapter(::handleBlueClick, "blue")
         }
         launchScheduleLoading(scheduleFragmentArgs.scheduleFilmId.toLong())
     }
     private fun handleDateClick(schedule: Schedule) {
-        //TODO fun выбор дня
+        updateSheduleByDay(schedule)
     }
     private fun handleRedClick(scheduleSeance: ScheduleSeance) {
-
+        TODO()
     }
     private fun handleGreenClick(scheduleSeance: ScheduleSeance) {
-
+        TODO()
     }
     private fun handleBlueClick(scheduleSeance: ScheduleSeance) {
-
+        TODO()
     }
     private fun launchScheduleLoading(id: Long) {
         showProgress()
-
         lifecycleScope.launch {
             try {
                 val repository = mainActivity.repository

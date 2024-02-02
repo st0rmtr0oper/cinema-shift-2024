@@ -7,7 +7,10 @@ import com.example.cinemashift.data.Schedule
 import com.example.cinemashift.data.ScheduleSeance
 import com.example.cinemashift.databinding.CeanseTimeBinding
 
-class ScheduleHallAdapter(private val ceanseClickListener: (ScheduleSeance) -> Unit, private val hall: String) :
+class ScheduleHallAdapter(
+    private val ceanseClickListener: (ScheduleSeance) -> Unit,
+    private val hall: String
+) :
     RecyclerView.Adapter<ScheduleHallHolder>() {
     var scheduleSeanceList: List<ScheduleSeance> = emptyList()
         set(value) {
@@ -31,9 +34,11 @@ class ScheduleHallAdapter(private val ceanseClickListener: (ScheduleSeance) -> U
 class ScheduleHallHolder(private val binding: CeanseTimeBinding, private val hall: String) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(scheduleSeance: ScheduleSeance, ceanseClickListener: (ScheduleSeance) -> Unit) {
-        binding.ceansePickButton.text = scheduleSeance.time
-        itemView.setOnClickListener {
-            ceanseClickListener(scheduleSeance)
+        with(binding) {
+            ceansePickButton.text = scheduleSeance.time
+            ceansePickButton.setOnClickListener {
+                ceanseClickListener(scheduleSeance)
+            }
         }
     }
 }
