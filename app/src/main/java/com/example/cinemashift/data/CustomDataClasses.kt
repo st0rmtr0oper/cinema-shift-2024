@@ -27,14 +27,14 @@ data class Schedule(
 )
 
 data class ScheduleSeance(
-    val time: List<String>,
+    val time: String,
     val hall: Hall,
     val payedTickets: List<Ticket>
 )
 
 data class Hall(
     val name: String,
-    val places: List<Place>
+    val places: List<List<Place>>
 )
 
 data class Place(

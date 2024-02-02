@@ -1,6 +1,5 @@
 package com.example.cinemashift.ui.films.schedule
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,13 +8,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import com.example.cinemashift.R
 import com.example.cinemashift.data.Schedule
 import com.example.cinemashift.data.mainActivity
-import com.example.cinemashift.databinding.FragmentFilmInfoBinding
 import com.example.cinemashift.databinding.FragmentScheduleBinding
-import com.example.cinemashift.ui.films.info.FilmInfoFragmentArgs
-import com.example.cinemashift.ui.profile.ProfileViewModel
 import kotlinx.coroutines.launch
 
 class ScheduleFragment : Fragment() {
@@ -70,7 +65,6 @@ class ScheduleFragment : Fragment() {
             scheduleErrorText.text = "$message\n Нажмите на это сообщение, чтобы обновить страницу"
             scheduleErrorText.setOnClickListener { launchScheduleLoading(scheduleFragmentArgs.scheduleFilmId.toLong()) }
         }
-
     }
 
     private fun showProgress() {
@@ -86,19 +80,20 @@ class ScheduleFragment : Fragment() {
             scheduleErrorText.isVisible = false
             scheduleProgBar.isVisible = false
             setContentVisible(true)
+            (datePickerRv.adapter as? ScheduleDateAdapter)?.scheduleList = scheduleList
         }
     }
 
     private fun setContentVisible(bool: Boolean) {
         with(binding) {
             rvText.isVisible = bool
-            svDate.isVisible = bool
+            datePickerRv.isVisible = bool
             redText.isVisible = bool
-            redButtons.isVisible = bool
+            redRv.isVisible = bool
             greenText.isVisible = bool
-            greenButtons.isVisible = bool
+            greenRv.isVisible = bool
             blueText.isVisible = bool
-            blueButtons.isVisible = bool
+            blueRv.isVisible = bool
         }
     }
 }

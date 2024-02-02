@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <ProgressBar
@@ -24,161 +25,57 @@
         android:id="@+id/rv_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="40dp"
+        android:text="@string/schedule_date_rv_text"/>
 
-    <HorizontalScrollView
-        android:id="@+id/sv_date"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/date_picker_rv"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/date_1"
-                android:layout_width="200dp"
-                android:layout_height="match_parent">
-            </Button>
-            <Button
-                android:id="@+id/date_2"
-                android:layout_width="200dp"
-                android:layout_height="match_parent">
-            </Button>
-            <Button
-                android:id="@+id/date_3"
-                android:layout_width="200dp"
-                android:layout_height="match_parent">
-            </Button>
-            <Button
-                android:id="@+id/date_4"
-                android:layout_width="200dp"
-                android:layout_height="match_parent">
-            </Button>
-            <Button
-                android:id="@+id/date_5"
-                android:layout_width="200dp"
-                android:layout_height="match_parent">
-            </Button>
-            <Button
-                android:id="@+id/date_6"
-                android:layout_width="200dp"
-                android:layout_height="match_parent">
-            </Button>
-            <Button
-                android:id="@+id/date_7"
-                android:layout_width="200dp"
-                android:layout_height="match_parent">
-            </Button>
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/date_pick" />
 
-        </LinearLayout>
-        
-    </HorizontalScrollView>
     <TextView
         android:id="@+id/red_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/schedule_red_rv_text"/>
 
-    <LinearLayout
-        android:id="@+id/red_buttons"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/red_rv"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/red_1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/red_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/red_3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/red_4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/ceanse_time"/>
 
     <TextView
         android:id="@+id/green_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/schedule_green_rv_text"/>
 
-    <LinearLayout
-        android:id="@+id/green_buttons"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/green_rv"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/green_1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/green_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/green_3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/green_4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/ceanse_time"/>
 
     <TextView
         android:id="@+id/blue_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/schedule_blue_rv_text"/>
 
-    <LinearLayout
-        android:id="@+id/blue_buttons"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/blue_rv"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/blue_1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/blue_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/blue_3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/blue_4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/ceanse_time"/>
 
 </LinearLayout>
