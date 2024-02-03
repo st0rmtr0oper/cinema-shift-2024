@@ -48,15 +48,11 @@ class MainActivity : AppCompatActivity() {
 
         //hiding bottom nav bar in non-home fragments
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            navView.isVisible = destination.id == R.id.navigation_film_info
-            navView.isVisible = destination.id == R.id.navigation_schedule
+            navView.isVisible = destination.id != R.id.navigation_film_info && destination.id != R.id.navigation_schedule
         }
 
         //enabling up button (1/2)
         NavigationUI.setupActionBarWithNavController(this, navController)
-
-        //orientation lock
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
     //enabling up button (2/2)
     override fun onSupportNavigateUp(): Boolean {
