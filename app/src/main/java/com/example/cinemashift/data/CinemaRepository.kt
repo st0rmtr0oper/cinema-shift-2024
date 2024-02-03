@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit
 
 class CinemaRepository {
     companion object {
-        const val BASE_URL = "https://shift-backend.onrender.com/"
-        const val CROP_URL = "https://shift-backend.onrender.com"
+        const val BASE_URL = "https://shift-backend.onrender.com"
+        fun getFilmURL(img: String): String {return BASE_URL+img}
     }
 
 
@@ -17,7 +17,7 @@ class CinemaRepository {
 
     private val retrofit = Retrofit.Builder()
         .client(provideOkHttpClient())
-        .baseUrl(BASE_URL)
+        .baseUrl("$BASE_URL/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 

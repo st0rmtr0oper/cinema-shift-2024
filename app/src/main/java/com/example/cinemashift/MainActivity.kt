@@ -6,6 +6,7 @@ import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -26,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //Calling SlashScreen
-        Thread.sleep(800)
         installSplashScreen()
 
         //binding
@@ -48,13 +48,8 @@ class MainActivity : AppCompatActivity() {
 
         //hiding bottom nav bar in non-home fragments
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if ((destination.id == R.id.navigation_film_info)||(destination.id == R.id.navigation_schedule)) {
-
-                navView.visibility = View.GONE
-            } else {
-
-                navView.visibility = View.VISIBLE
-            }
+            navView.isVisible = destination.id == R.id.navigation_film_info
+            navView.isVisible = destination.id == R.id.navigation_schedule
         }
 
         //enabling up button (1/2)

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cinemashift.R
-import com.example.cinemashift.data.CinemaRepository.Companion.CROP_URL
+import com.example.cinemashift.data.CinemaRepository.Companion.BASE_URL
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.databinding.FilmPosterItemBinding
 
@@ -41,7 +41,7 @@ class PosterViewHolder(private val binding: FilmPosterItemBinding) :
             //TODO stringFormat (44:09)
 
             Glide.with(binding.filmImg.context)
-                .load(CROP_URL+film.img) // image url
+                .load(BASE_URL+film.img) // image url
                 .placeholder(R.drawable.baseline_image_24) // any placeholder to load at start
                 .error(R.drawable.baseline_hide_image_24)  // any image in case of error
                 .into(binding.filmImg)

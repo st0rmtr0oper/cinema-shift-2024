@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.cinemashift.databinding.FragmentProfileBinding
 
@@ -22,8 +23,7 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val profileViewModel =
-            ViewModelProvider(this)[ProfileViewModel::class.java]
+        val profileViewModel: ProfileViewModel by viewModels()
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root

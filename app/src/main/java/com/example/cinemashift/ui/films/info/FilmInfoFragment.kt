@@ -1,6 +1,5 @@
 package com.example.cinemashift.ui.films.info
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,7 +15,6 @@ import com.example.cinemashift.data.CinemaRepository
 import com.example.cinemashift.data.Film
 import com.example.cinemashift.data.mainActivity
 import com.example.cinemashift.databinding.FragmentFilmInfoBinding
-import com.example.cinemashift.ui.profile.ProfileViewModel
 import kotlinx.coroutines.launch
 
 class FilmInfoFragment : Fragment() {
@@ -88,7 +86,7 @@ class FilmInfoFragment : Fragment() {
             filmRatingValue.text = film.userRatings.imdb + film.userRatings.kinopoisk
             filmDescriptionText.text = film.description
             Glide.with(binding.filmImg.context)
-                .load(CinemaRepository.CROP_URL +film.img) // image url
+                .load(CinemaRepository.getFilmURL(film.img)) // image url
                 .placeholder(R.drawable.baseline_image_24) // any placeholder to load at start
                 .error(R.drawable.baseline_hide_image_24)  // any image in case of error
                 .into(binding.filmImg)
